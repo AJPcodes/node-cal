@@ -29,18 +29,21 @@ describe('cal', () => {
     });
 
     describe('.modifiedYear', () => {
-      it('returns 2015 for Jan 2015', () => {
+      it('returns 2014 for Jan 2015', () => {
         expect(zellers.modifiedYear(2015, 1)).to.equal(2014);
       });
-      it('returns 2015 for Jan 2015', () => {
+      it('returns 2015 for Feb 2016', () => {
         expect(zellers.modifiedYear(2016, 2)).to.equal(2015);
       });
-      it('returns 2017 for Jan 2015', () => {
+      it('returns 2017 for March 2017', () => {
         expect(zellers.modifiedYear(2017, 3)).to.equal(2017);
       });
     });
 
     describe('.getDay', () => {
+      it('returns 5 (Friday) for January 1, 2016', () => {
+        expect(zellers.getDay(2016, 1, 1)).to.equal(5);
+      });
       it('returns 2 (Tuesday) for March 1, 2016', () => {
         expect(zellers.getDay(2016, 3, 1)).to.equal(2);
       });

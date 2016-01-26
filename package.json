@@ -1,0 +1,23 @@
+{
+  "name": "node-cal",
+  "version": "1.0.0",
+  "description": "cal written in node.js",
+  "main": "cal.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --harmony_destructuring tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJPcodes/node-cal.git"
+  },
+  "author": "Allen Phelps (https://ajpcodes.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AJPcodes/node-cal/issues"
+  },
+  "homepage": "https://github.com/AJPcodes/node-cal#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}

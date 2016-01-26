@@ -14,22 +14,20 @@ let modifiedYear = (year, month) => {
   return year;
 };
 
-
-
-
-
-
-
 module.exports = {
 
-modifiedMonth: (month) => {
-  return modifiedMonth(month);
+modifiedMonth: (m) => {
+  return modifiedMonth(m);
 },
 
-modifiedYear: (year, month) => {
-  return modifiedYear(year, month);
+modifiedYear: (y, m) => {
+  return modifiedYear(y, m);
 },
 
-getDay: () => {}
+getDay: (y, m, d) => {
+  let mm = modifiedMonth(m);
+  let my = modifiedYear(y)
+  return (d + parseInt(((mm + 1) * 26) / 10) + my + parseInt(my / 4) + 6 * parseInt(my / 100) + parseInt(my / 400) - 1) % 7;
+}
 
 }

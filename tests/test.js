@@ -45,7 +45,7 @@ describe('cal', () => {
         expect(zellers.getDay(2016, 3, 1)).to.equal(2);
       });
        it('returns 3 (Wednesday) for March 1, 2000', () => {
-        expect(zellers.getDay(2000, 3, 1)).to.equal(1);
+        expect(zellers.getDay(2000, 3, 1)).to.equal(3);
       });
         it('returns 0 (Sunday) for March 2, 2200', () => {
         expect(zellers.getDay(2200, 3, 2)).to.equal(0);

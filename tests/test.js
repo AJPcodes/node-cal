@@ -14,13 +14,39 @@ const { expect } = require('chai');
 const { execSync } = require('child_process');
 
 describe('cal', () => {
-  describe('CLI', () => {
-    it('should handle the current month', () => {
-      const goal = execSync('cal').toString();
-      const output = execSync('./cal.js').toString();
+  // describe('CLI', () => {
+  //   it('should handle the current month', () => {
+  //     const goal = execSync('cal').toString();
+  //     const output = execSync('./cal.js').toString();
 
-      expect(output).to.equal(goal);
+  //     expect(output).to.equal(goal);
+  //   });
+  // });
+
+  describe("Validate args", () => {
+    const validateArgs = require('../lib/validateArgs.js');
+    const currentDate = new Date();
+    const compareArr = [currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()];
+
+    it('return the current date when no arguments are passed', () => {
+      expect(validateArgs.validate([])[0]).to.equal(compareArr[0]);
+      expect(validateArgs.validate([])[1]).to.equal(compareArr[1]);
+      expect(validateArgs.validate([])[2]).to.equal(compareArr[2]);
     });
+
+    it('return null for too many arguments', () => {
+       expect(validateArgs.validate([2,2,3,4])).to.be.a('null');
+    });
+
+    it('return null for invalid arguments', () => {
+      expect(validateArgs.validate(['a'])).to.be.a('null');
+      expect(validateArgs.validate([-1, 3])).to.be.a('null');
+      expect(validateArgs.validate([1600, 3])).to.be.a('null');
+      expect(validateArgs.validate([100000, 3])).to.be.a('null');
+      expect(validateArgs.validate([1600, 3])).to.be.a('null');
+
+    });
+
   });
 
   describe("Zeller's congruence", () => {

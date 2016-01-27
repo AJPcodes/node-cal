@@ -2,16 +2,20 @@
 'use strict';
 //1753 - 9999
 const [,, ...args] = process.argv;
-console.log(args);
 
-
+const validateArgs = require('./lib/validateArgs.js');
 const displayMonth = require('./lib/month.js');
 
-const theDate = new Date();
-const currentYear = theDate.getFullYear();
-const currentMonth = theDate.getMonth() + 1;
-const currentDate = theDate.getDate();
+//validate the arguments
+const validatedArgs = validateArgs.validate(args);
+if (!validatedArgs) {
+	process.exit();
+}
 
-let output = displayMonth.getMonth(currentYear, currentMonth, currentDate);
+//read and manage passed arguments
+const [yearArg, monthArg, dayArg] = validatedArgs;
 
+if (yearArg && monthArg) {
+let output = displayMonth.getMonth(yearArg, monthArg, dayArg);
 console.log(output);
+}

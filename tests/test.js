@@ -1,5 +1,15 @@
 'use strict';
-
+// tests to write:
+// 6 week mo 8/2015
+// 5 week mo 10/2015
+// 4 week mo 2/2015
+// 30 day month 11/2015
+// 31 day month 12/2015
+// Fed Leap year 2/2012
+// Feb non leap 2/2014
+// Some bad years e.g. 'a', 1000, 100000, -2 etc.
+//
+//
 const { expect } = require('chai');
 const { execSync } = require('child_process');
 
@@ -14,7 +24,7 @@ describe('cal', () => {
   });
 
   describe("Zeller's congruence", () => {
-    const zellers = require('../zeller.js');
+    const zellers = require('../lib/zeller.js');
 
     describe('.modifiedMonth', () => {
       it('return 13 for January', () => {

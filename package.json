@@ -4,7 +4,8 @@
   "description": "cal written in node.js",
   "main": "cal.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --harmony_destructuring tests"
+    "test": "./node_modules/.bin/mocha --harmony_destructuring tests",
+    "start": "node --harmony_destructuring ./cal.js"
   },
   "repository": {
     "type": "git",

@@ -70,6 +70,21 @@ describe('cal', () => {
 
       expect(output).to.equal(goal);
     });
+
+    it('should handle a full year', () => {
+      const goal = execSync('cal 2014').toString()
+      const output = execSync('node --harmony_destructuring ./cal.js 2014').toString()
+      // expect(output.join("")).to.equal(goal.join(""));
+      expect(output).to.equal(goal);
+    });
+
+    it('should handle a full year', () => {
+      const goal = execSync('cal 1886').toString()
+      const output = execSync('node --harmony_destructuring ./cal.js 1886').toString()
+      // expect(output.join("")).to.equal(goal.join(""));
+      expect(output).to.equal(goal);
+    });
+
   });
 
   describe("Validate args", () => {

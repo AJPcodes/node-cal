@@ -83,6 +83,15 @@ describe('cal', () => {
       expect(validateArgs.validate([])[2]).to.equal(compareArr[2]);
     });
 
+    it('return the formatted date when a correct argument is passed', () => {
+      expect(validateArgs.validate([2015,2])[0]).to.equal(2015);
+      expect(validateArgs.validate([2015,2])[1]).to.equal(2);
+    });
+
+    it('return just the year when only 1 argument is passed', () => {
+      expect(validateArgs.validate([2015])[0]).to.equal(2015);
+    });
+
     it('return null for too many arguments', () => {
        expect(validateArgs.validate([2,2,3,4])).to.be.a('null');
     });

@@ -85,6 +85,14 @@ describe('cal', () => {
   //   });
 
   // });
+  describe("CenterLine", () => {
+    const centerLine = require('../lib/centerLine').centerLine;
+
+    it('it adds whitespace to make a string longer', () => {
+      expect(centerLine("a").length).to.equal(22);
+
+    });
+  });
 
   describe("Validate args", () => {
     const validateArgs = require('../lib/validateArgs.js');
@@ -165,7 +173,6 @@ describe('cal', () => {
         it('returns 4 (Thursday) for March 1, 2300', () => {
         expect(zellers.getDay(2300, 3, 1)).to.equal(4);
       });
-      // 2300, 3, 1 === 4
     });
   });
 });

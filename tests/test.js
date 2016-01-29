@@ -124,7 +124,7 @@ describe('cal', () => {
       expect(validateArgs.validate([1600, 3])).to.be.a('null');
       expect(validateArgs.validate([100000, 3])).to.be.a('null');
       expect(validateArgs.validate([1600, 3])).to.be.a('null');
-      expect(validateArgs.validate([1600, 13])).to.be.a('null');
+      expect(validateArgs.validate([1600, 18])).to.be.a('null');
       expect(validateArgs.validate([1600, 'a'])).to.be.a('null');
     });
 

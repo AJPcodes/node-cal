@@ -5,7 +5,9 @@
   "main": "cal.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --harmony_destructuring tests",
-    "start": "node --harmony_destructuring ./cal.js"
+    "start": "node --harmony_destructuring ./cal.js",
+    "cover": "node --harmony_destructuring --harmony_rest_parameters ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha tests",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,10 @@
   "homepage": "https://github.com/AJPcodes/node-cal#readme",
   "devDependencies": {
     "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0"
   },
   "dependencies": {
     "lodash": "^4.0.1"

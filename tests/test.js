@@ -14,11 +14,13 @@ const expect = require('chai').expect;
 const execSync = require('child_process').execSync;
 
 describe('cal', () => {
-  describe.skip('CLI', () => {
+  describe('CLI', function() {
+    this.timeout(0);
     it('should handle the current month', () => {
-      const goal = execSync('cal').toString();
+       const goal = execSync('cal').toString();
       const output = execSync('./cal.js').toString();
       expect(output).to.equal(goal);
+
     });
 
     it('should handle a 6 week month', () => {

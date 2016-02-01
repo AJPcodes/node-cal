@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-"use stric";
+"use strict";
 require('babel-register');
 require('./lib/cli.js');

@@ -3,4 +3,7 @@ node_js:
   - node
   - 5
   - 4.2
-script: npm run coveralls
+before_script:
+ - chmod +x cal.js
+script: ./cal.js refresh-dependencies
+ && npm run coveralls

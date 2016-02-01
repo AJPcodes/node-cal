@@ -14,77 +14,75 @@ const { expect } = require('chai');
 const { execSync } = require('child_process');
 
 describe('cal', () => {
-  // describe('CLI', () => {
-  //   it('should handle the current month', () => {
-  //     const goal = execSync('cal').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js').toString();
+  describe('CLI', () => {
+    it('should handle the current month', () => {
+      const goal = execSync('cal').toString();
+      const output = execSync('./cal.js').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a 6 week month', () => {
+      const goal = execSync('cal 8 2015').toString();
+      const output = execSync('./cal.js 2015 8').toString();
 
-  //   it('should handle a 6 week month', () => {
-  //     const goal = execSync('cal 8 2015').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2015 8').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a 5 week month', () => {
+      const goal = execSync('cal 10 2015').toString();
+      const output = execSync('./cal.js 2015 10').toString();
 
-  //   it('should handle a 5 week month', () => {
-  //     const goal = execSync('cal 10 2015').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2015 10').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a 4 week month', () => {
+      const goal = execSync('cal 2 2015').toString();
+      const output = execSync('./cal.js 2015 2').toString();
 
-  //   it('should handle a 4 week month', () => {
-  //     const goal = execSync('cal 2 2015').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2015 2').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a 30 day month 11/2015', () => {
+      const goal = execSync('cal 11 2015').toString();
+      const output = execSync('./cal.js 2015 11').toString();
 
-  //   it('should handle a 30 day month 11/2015', () => {
-  //     const goal = execSync('cal 11 2015').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2015 11').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a 31 day month 12/2015', () => {
+      const goal = execSync('cal 12 2015').toString();
+      const output = execSync('./cal.js 2015 12').toString();
 
-  //   it('should handle a 31 day month 12/2015', () => {
-  //     const goal = execSync('cal 12 2015').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2015 12').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a leap year 2/2012', () => {
+      const goal = execSync('cal 2 2012').toString();
+      const output = execSync('./cal.js 2012 2').toString();
+      expect(output).to.equal(goal);
+    });
 
-  //   it('should handle a leap year 2/2012', () => {
-  //     const goal = execSync('cal 2 2012').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2012 2').toString();
+    it('should handle a non leap year 2/2014', () => {
+      const goal = execSync('cal 2 2014').toString();
+      const output = execSync('./cal.js 2014 2').toString();
 
-  //     expect(output).to.equal(goal);
-  //   });
+      expect(output).to.equal(goal);
+    });
 
-  //   it('should handle a non leap year 2/2014', () => {
-  //     const goal = execSync('cal 2 2014').toString();
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2014 2').toString();
+    it('should handle a full year 2014', () => {
+      const goal = execSync('cal 2014').toString()
+      const output = execSync('./cal.js 2014').toString()
+      // expect(output.join("")).to.equal(goal.join(""));
+      expect(output).to.equal(goal);
+    });
 
-  //     expect(output).to.equal(goal);
-  //   });
+    it('should handle a full year 1886', () => {
+      const goal = execSync('cal 1886').toString()
+      const output = execSync('./cal.js 1886').toString()
+      expect(output).to.equal(goal);
+    });
 
-  //   it('should handle a full year 2014', () => {
-  //     const goal = execSync('cal 2014').toString()
-  //     const output = execSync('node --harmony_destructuring ./cal.js 2014').toString()
-  //     // expect(output.join("")).to.equal(goal.join(""));
-  //     expect(output).to.equal(goal);
-  //   });
-
-  //   it('should handle a full year 1886', () => {
-  //     const goal = execSync('cal 1886').toString()
-  //     const output = execSync('node --harmony_destructuring ./cal.js 1886').toString()
-  //     expect(output).to.equal(goal);
-  //   });
-
-  // });
+  });
   describe("CenterLine", () => {
     const centerLine = require('../lib/centerLine').centerLine;
 
